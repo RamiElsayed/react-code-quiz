@@ -1,3 +1,8 @@
+import Typography from "@mui/material/Typography";
 export const App = () => {
-  return <div>Hello</div>;
+  return (
+    <Typography component="h1" variant="h1">
+      Hello
+    </Typography>
+  );
 };

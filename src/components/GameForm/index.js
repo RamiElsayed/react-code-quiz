@@ -1,15 +1,24 @@
+import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
+import Button from "@mui/material/Button";
+import { useGame } from "../../hooks/useGame";
 
-export const GameForm = ({ category, setCategory }) => {
+export const GameForm = () => {
+  const { category, setCategory, setGameInProgress } = useGame();
   const onChange = (event) => {
     setCategory(event.target.value);
   };
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    console.log("submit");
+    setGameInProgress(true);
+  };
   return (
-    <form>
-      <FormControl sx={{ m: 1, width: "100%" }} variant="standard">
+    <form onSubmit={onSubmit}>
+      <FormControl sx={{ width: "100%" }} variant="standard">
         <InputLabel id="gameCategoryLabel">Choose a category</InputLabel>
         <Select
           labelId="gameCategoryLabel"
@@ -31,6 +40,9 @@ export const GameForm = ({ category, setCategory }) => {
           </MenuItem>
         </Select>
       </FormControl>
+      <Button fullWidth variant="contained" type="submit">
+        Contained
+      </Button>
     </form>
   );
 };

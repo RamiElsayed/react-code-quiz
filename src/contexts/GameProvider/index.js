@@ -1,6 +1,6 @@
-import React, { Children } from "react";
+import { createContext, useState } from "react";
 
-export const GameContext = React.createContext();
+export const GameContext = createContext();
 
 export const GameProvider = ({ Children }) => {
   const [gameInProgress, setGameInProgress] = useState(false);

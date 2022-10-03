@@ -1,6 +1,5 @@
 import { Box } from "@mui/system";
 
-import { useState } from "react";
 import { Game } from "./containers/Game";
 import { GameProvider } from "./contexts/GameProvider";
 export const App = () => {
@@ -13,3 +12,4 @@ export const App = () => {
     </div>
   );
 };
+export default App;

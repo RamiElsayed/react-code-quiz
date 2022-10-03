@@ -7,22 +7,25 @@ import { useGame } from "../../hooks/useGame";
 
 export const GameForm = () => {
   const { category, setCategory, setGameInProgress } = useGame();
+
   const onChange = (event) => {
     setCategory(event.target.value);
   };
+
   const onSubmit = (event) => {
     event.preventDefault();
 
     console.log("submit");
     setGameInProgress(true);
   };
+
   return (
     <form onSubmit={onSubmit}>
       <FormControl sx={{ width: "100%" }} variant="standard">
         <InputLabel id="gameCategoryLabel">Choose a category</InputLabel>
         <Select
           labelId="gameCategoryLabel"
-          id="gameCategory"
+          id="gameCategoryLabel"
           onChange={onChange}
           value={category}
         >

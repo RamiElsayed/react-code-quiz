@@ -1,15 +1,16 @@
 import Container from "@mui/material/Container";
-import { GameForm } from "./components/GameForm";
+import { Box } from "@mui/material";
+
+import { GameForm } from "../../components/GameForm";
+import { useGame } from "../../hooks/useGame";
+
 export const Game = () => {
+  const { gameInProgress } = useGame();
   return (
     <Container maxWidth="md">
       {!gameInProgress && (
         <Box component="section" sx={{ border: "1px solid black" }}>
-          <GameForm
-            category={category}
-            setCategory={setCategory}
-            setGameInProgress={setGameInProgress}
-          />
+          <GameForm />
         </Box>
       )}
       {gameInProgress && <Box component="section">Quiz</Box>}

@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const GameContext = createContext();
 
-export const GameProvider = ({ Children }) => {
+export const GameProvider = ({ children }) => {
   const [gameInProgress, setGameInProgress] = useState(false);
   const [category, setCategory] = useState("sports");
 
@@ -10,7 +10,7 @@ export const GameProvider = ({ Children }) => {
     <GameContext.Provider
       value={{ gameInProgress, setGameInProgress, category, setCategory }}
     >
-      {Children}
+      {children}
     </GameContext.Provider>
   );
 };

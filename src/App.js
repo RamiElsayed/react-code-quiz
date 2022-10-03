@@ -2,6 +2,7 @@ import { Box } from "@mui/system";
 
 import { Game } from "./containers/Game";
 import { GameProvider } from "./contexts/GameProvider";
+
 export const App = () => {
   return (
     <div>
@@ -12,4 +13,3 @@ export const App = () => {
     </div>
   );
 };
-export default App;

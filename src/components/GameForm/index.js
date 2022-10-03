@@ -25,13 +25,10 @@ export const GameForm = () => {
         <InputLabel id="gameCategoryLabel">Choose a category</InputLabel>
         <Select
           labelId="gameCategoryLabel"
-          id="gameCategoryLabel"
+          id="gameCategory"
           onChange={onChange}
           value={category}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           <MenuItem value="sports" sx={{ width: "100%" }}>
             sports
           </MenuItem>

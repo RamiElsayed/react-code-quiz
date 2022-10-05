@@ -6,6 +6,7 @@ const initialState = {
   gameInProgress: false,
   category: "Sports",
   questions: questions.Sports,
+  currentQuestionIndex: 0,
 };
 const reducer = (state, action) => {
   if (action.type === "START_GAME") {
@@ -17,6 +18,8 @@ const reducer = (state, action) => {
   }
   if (action.type === "CHANGE_CATEGORY") {
     return { ...state, category: action.payload };
+  }
+  if (action.type === "NEXT_QUESTION") {
   }
   return state;
 };

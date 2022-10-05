@@ -3,10 +3,11 @@ import { Box } from "@mui/material";
 
 import { GameForm } from "../../components/GameForm";
 import { useGame } from "../../hooks/useGame";
+import { Quiz } from "../../components/Quiz";
 
 export const Game = () => {
   const { state } = useGame();
-  console.log(state);
+
   return (
     <Container maxWidth="md">
       {!state.gameInProgress && (
@@ -14,7 +15,11 @@ export const Game = () => {
           <GameForm />
         </Box>
       )}
-      {state.gameInProgress && <Box component="section">Quiz</Box>}
+      {state.gameInProgress && (
+        <Box component="section">
+          <Quiz />
+        </Box>
+      )}
     </Container>
   );
 };

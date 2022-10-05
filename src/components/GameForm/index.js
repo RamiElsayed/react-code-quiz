@@ -49,7 +49,7 @@ export const GameForm = () => {
         </Select>
       </FormControl>
       <Button fullWidth variant="contained" type="submit">
-        Contained
+        Start Quiz
       </Button>
     </form>
   );

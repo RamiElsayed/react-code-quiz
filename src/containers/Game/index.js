@@ -5,15 +5,16 @@ import { GameForm } from "../../components/GameForm";
 import { useGame } from "../../hooks/useGame";
 
 export const Game = () => {
-  const { gameInProgress } = useGame();
+  const { state } = useGame();
+  console.log(state);
   return (
     <Container maxWidth="md">
-      {!gameInProgress && (
+      {!state.gameInProgress && (
         <Box component="section" sx={{ border: "1px solid black" }}>
           <GameForm />
         </Box>
       )}
-      {gameInProgress && <Box component="section">Quiz</Box>}
+      {state.gameInProgress && <Box component="section">Quiz</Box>}
     </Container>
   );
 };

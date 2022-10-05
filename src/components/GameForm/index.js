@@ -21,7 +21,6 @@ export const GameForm = () => {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    console.log("submit");
     dispatch({
       type: "START_GAME",
     });
@@ -37,14 +36,14 @@ export const GameForm = () => {
           onChange={onChange}
           value={category}
         >
-          <MenuItem value="sports" sx={{ width: "100%" }}>
-            sports
+          <MenuItem value="Sports" sx={{ width: "100%" }}>
+            Sports
           </MenuItem>
-          <MenuItem value="music" sx={{ width: "100%" }}>
-            music
+          <MenuItem value="Music" sx={{ width: "100%" }}>
+            Music
           </MenuItem>
-          <MenuItem value="science" sx={{ width: "100%" }}>
-            science
+          <MenuItem value="Science" sx={{ width: "100%" }}>
+            Science
           </MenuItem>
         </Select>
       </FormControl>

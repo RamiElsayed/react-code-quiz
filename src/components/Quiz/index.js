@@ -1,21 +1,28 @@
+import { Game } from "../../containers/Game";
 import { useGame } from "../../hooks/useGame";
 
 export const Quiz = () => {
   const {
-    state: { questions },
+    state: { questions, currentQuestionIndex },
+    dispatch,
   } = useGame();
-  const currentQuestion = questions[0];
+
+  const onClick = () => {
+    dispatch({
+      type: "NEXT_QUESTION",
+    });
+  };
   return (
     <div>
-      <div>{currentQuestion.question}</div>
+      <div>{questions[currentQuestionIndex].question}</div>
       <div>
         <div>
-          {currentQuestion.choices.map((choice, index) => {
+          {questions[currentQuestionIndex].choices.map((choice, index) => {
             return <div key={index}>{choice}</div>;
           })}
         </div>
       </div>
-      <button>Next</button>
+      <button onClick={onClick}>Next</button>
     </div>
   );
 };

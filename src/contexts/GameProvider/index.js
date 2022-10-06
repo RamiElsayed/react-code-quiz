@@ -20,6 +20,7 @@ const reducer = (state, action) => {
     return { ...state, category: action.payload };
   }
   if (action.type === "NEXT_QUESTION") {
+    return { ...state, currentQuestionIndex: state.currentQuestionIndex++ };
   }
   return state;
 };

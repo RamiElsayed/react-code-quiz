@@ -1,4 +1,3 @@
-import { Game } from "../../containers/Game";
 import { useGame } from "../../hooks/useGame";
 
 export const Quiz = () => {
@@ -8,10 +7,13 @@ export const Quiz = () => {
   } = useGame();
 
   const onClick = () => {
-    dispatch({
-      type: "NEXT_QUESTION",
-    });
+    if (currentQuestionIndex < questions.length - 1) {
+      dispatch({
+        type: "NEXT_QUESTION",
+      });
+    }
   };
+
   return (
     <div>
       <div>{questions[currentQuestionIndex].question}</div>

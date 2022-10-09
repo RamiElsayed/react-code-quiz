@@ -4,6 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import { useGame } from "../../hooks/useGame";
+import {Stack} from "@mui/material";
 
 export const GameForm = () => {
   const {
@@ -27,7 +28,8 @@ export const GameForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+  <form onSubmit={onSubmit}>
+    <Stack spacing={4}>
       <FormControl sx={{ width: "100%" }} variant="standard">
         <InputLabel id="gameCategoryLabel">Choose a category</InputLabel>
         <Select
@@ -47,9 +49,12 @@ export const GameForm = () => {
           </MenuItem>
         </Select>
       </FormControl>
-      <Button fullWidth variant="contained" type="submit">
-        Start Quiz
-      </Button>
-    </form>
+      <FormControl sx={{ width: "100%" }} variant="standard">
+        <Button fullWidth variant="contained" type="submit">
+          Start Quiz
+        </Button>
+      </FormControl>
+    </Stack>
+  </form>
   );
 };

@@ -4,11 +4,13 @@ import { questions } from "../../data/questions";
 export const GameContext = createContext();
 const initialState = {
   gameInProgress: false,
-  displayQuestion: true,
   category: "Sports",
   questions: questions.Sports,
   currentQuestionIndex: 0,
-  percentComplete: 0
+  percentComplete: 0,
+  results: [],
+  userAnswer: 0,
+  score: 0
 };
 const reducer = (state, action) => {
   if (action.type === "START_GAME") {
@@ -18,15 +20,37 @@ const reducer = (state, action) => {
       questions: questions[state.category],
     };
   }
+
   if (action.type === "CHANGE_CATEGORY") {
     return { ...state, category: action.payload };
   }
+
   if (action.type === "NEXT_QUESTION") {
-    return { ...state, currentQuestionIndex: state.currentQuestionIndex++, percentComplete: state.percentComplete + (100 / state.questions.length)};
+    console.log(state)
+    const isCorrect = action.userAnswer === state.questions[state.currentQuestionIndex].correctAnswer;
+
+    const resultObject = {
+      ...state.questions[state.currentQuestionIndex],
+      ...state.questions[state.currentQuestionIndex].correctAnswer,
+      isCorrect,
+    }
+    if (state.currentQuestionIndex < state.questions.length - 1) {
+      return {
+        ...state, currentQuestionIndex: state.currentQuestionIndex++,
+        percentComplete: state.percentComplete + (100 / state.questions.length),
+        score: isCorrect ? state.score++ : state.score,
+        results: [...state.results, resultObject],
+      };
+    } else {
+      return {
+        ...state,
+        percentComplete: state.percentComplete + (100 / state.questions.length),
+        score: isCorrect ? state.score++ : state.score,
+        results: [...state.results, resultObject],
+      };
+    }
   }
-  if (action.type === "LAST_QUESTION" ) {
-    return { ...state, percentComplete: state.percentComplete + (100 / state.questions.length), displayQuestion: false};
-  }
+
   return state;
 };
 

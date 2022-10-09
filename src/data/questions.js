@@ -3,35 +3,35 @@ export const questions = {
     {
       question: "Which national team won the world cup 1998 ?",
       options: ["Brazil", "Italy", "Germany", "France", "England"],
-      correctanswer: "France",
+      correctAnswer: "France",
     },
     {
       question:
         "Who's the highest scoring player from Liverpool in the Premier League ?",
       options: ["Rooney", "Scholes", "Giggs", "Salah", "Mane"],
-      correctanswer: "Salah",
+      correctAnswer: "Salah",
     },
     {
       question: "Which team is the most winning of the world cup ?",
       options: ["France", "Brazil", "England", "Germany"],
-      correctanswer: "Brazil",
+      correctAnswer: "Brazil",
     },
     {
       question: "Who's the highest paid footballer in history",
       options: ["Messi", "Maradona", "Chrsitiano Ronaldo", "Romario, Zidan"],
-      correctanswer: "alexander fleming",
+      correctAnswer: "alexander fleming",
     },
   ],
   Music: [
     {
       question: "Which singer did the longest music tour ?",
       options: ["Madonna", "Michael Jackson", "Mark Antony", "Nelly", "Eminem"],
-      correctanswer: "Michael Jackson",
+      correctAnswer: "Michael Jackson",
     },
     {
       question: "Who invented the Ann Marie musical Symphony ?",
       options: ["Beethoven", "Bach", "Tchaikovesky", "Mozart"],
-      correctanswer: "Bach",
+      correctAnswer: "Bach",
     },
   ],
   Science: [
@@ -44,7 +44,7 @@ export const questions = {
         "Graham Bill",
         "marie curie",
       ],
-      correctanswer: "marie curie",
+      correctAnswer: "marie curie",
     },
     {
       question: "the scientist with the most inventions in recent history ?",
@@ -54,7 +54,7 @@ export const questions = {
         "nicola tesla",
         "michael faraday",
       ],
-      correctanswer: "nicola tesla",
+      correctAnswer: "nicola tesla",
     },
     {
       question:
@@ -65,12 +65,12 @@ export const questions = {
         "alhazin",
         "alexander fleming",
       ],
-      correctanswer: "alhazin",
+      correctAnswer: "alhazin",
     },
     {
       question: "who's the scientist to invent the first antibiotic in history",
       options: ["carl yung", "carl sagan", "alexander fleming", "carl gauss"],
-      correctanswer: "alexander fleming",
+      correctAnswer: "alexander fleming",
     },
   ],
 };

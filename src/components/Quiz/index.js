@@ -5,7 +5,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Button from "@mui/material/Button";
-import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import {useState} from "react";
@@ -15,25 +14,31 @@ import {ProgressBar} from "../ProgressBar";
 
 export const Quiz = () => {
   const {
-    state: { questions, currentQuestionIndex, percentComplete, displayQuestion },
+    state: { questions, currentQuestionIndex, percentComplete },
     dispatch,
   } = useGame();
-  const [choiceSelected, setChoiceSelected] = useState(false);
+  const [choiceSelected, setChoiceSelected] = useState();
+  const [displayQuestion, setDisplayQuestion] = useState(true);
+
   const onClick = () => {
     if (currentQuestionIndex < questions.length - 1) {
       dispatch({
         type: "NEXT_QUESTION",
+        userAnswer: choiceSelected
       });
     }
     if (currentQuestionIndex === questions.length - 1) {
       dispatch({
-        type: "LAST_QUESTION",
+        type: "NEXT_QUESTION",
+        userAnswer: choiceSelected
       });
+      setDisplayQuestion(false)
     }
+    setChoiceSelected("");
   };
 
-  function onChange() {
-    setChoiceSelected(true);
+  function onChange(event) {
+    setChoiceSelected(event.target.value);
   }
 
   return (

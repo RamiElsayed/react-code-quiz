@@ -24,13 +24,13 @@ export const Quiz = () => {
     if (currentQuestionIndex < questions.length - 1) {
       dispatch({
         type: "NEXT_QUESTION",
-        userAnswer: choiceSelected
+        payload: {userAnswer: choiceSelected}
       });
     }
-    if (currentQuestionIndex === questions.length - 1) {
+    if (currentQuestionIndex >= questions.length - 1) {
       dispatch({
-        type: "NEXT_QUESTION",
-        userAnswer: choiceSelected
+        type: "LAST_QUESTION",
+        payload: {userAnswer: choiceSelected}
       });
       setDisplayQuestion(false)
     }

@@ -1,10 +1,8 @@
 import { useGame } from "../../hooks/useGame";
-import Button from "@mui/material/Button";
-import Typography from '@mui/material/Typography';
 import {useState} from "react";
-import {Stack} from "@mui/material";
 import {ProgressBar} from "../ProgressBar";
 import {Question} from "../Question";
+import {Results} from "../Results";
 
 
 export const Quiz = () => {
@@ -43,14 +41,8 @@ export const Quiz = () => {
               onClick={onClick}/>
       }
       {!displayQuestion &&
-      <Stack spacing={2}>
-        <Typography variant="body2" color="text.secondary">
-          Congratulations
-        </Typography>
-        <Button variant="contained" disableElevation>
-          View Results
-        </Button>
-      </Stack>}
+          <Results />
+      }
     </div>
   );
 };

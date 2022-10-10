@@ -26,7 +26,6 @@ const reducer = (state, action) => {
 
   if (action.type === "NEXT_QUESTION") {
 
-    console.log(state.currentQuestionIndex)
     const { userAnswer } = action.payload
     const isCorrect =  userAnswer === state.questions[state.currentQuestionIndex].correctAnswer;
 

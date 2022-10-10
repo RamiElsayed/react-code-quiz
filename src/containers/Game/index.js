@@ -13,6 +13,7 @@ export const Game = () => {
     borderRadius: " 8px",
     mt: "20px",
   }
+  console.log(state)
   return (
     <Container maxWidth="md">
       {!state.gameInProgress && (

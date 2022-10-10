@@ -35,7 +35,6 @@ const reducer = (state, action) => {
       userAnswer,
       isCorrect,
     }
-
       return {
         ...state,
         currentQuestionIndex: state.currentQuestionIndex + 1,

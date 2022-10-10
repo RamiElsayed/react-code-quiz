@@ -22,19 +22,14 @@ export const Quiz = () => {
 
   const onClick = () => {
     if (currentQuestionIndex < questions.length - 1) {
-      dispatch({
-        type: "NEXT_QUESTION",
-        payload: {userAnswer: choiceSelected}
-      });
-    }
-    if (currentQuestionIndex >= questions.length - 1) {
-      dispatch({
-        type: "LAST_QUESTION",
-        payload: {userAnswer: choiceSelected}
-      });
+      setChoiceSelected("");
+    } else {
       setDisplayQuestion(false)
     }
-    setChoiceSelected("");
+    dispatch({
+      type: "NEXT_QUESTION",
+      payload: {userAnswer: choiceSelected}
+    });
   };
 
   function onChange(event) {

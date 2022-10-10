@@ -25,6 +25,8 @@ const reducer = (state, action) => {
   }
 
   if (action.type === "NEXT_QUESTION") {
+
+    console.log(state.currentQuestionIndex)
     const { userAnswer } = action.payload
     const isCorrect =  userAnswer === state.questions[state.currentQuestionIndex].correctAnswer;
 
@@ -33,31 +35,14 @@ const reducer = (state, action) => {
       userAnswer,
       isCorrect,
     }
+
       return {
         ...state,
-        currentQuestionIndex: state.currentQuestionIndex++,
+        currentQuestionIndex: state.currentQuestionIndex + 1,
         percentComplete: state.percentComplete + (100 / state.questions.length),
         score: isCorrect ? state.score++ : state.score,
         results: [...state.results, resultObject],
       };
-
-  }
-  if (action.type === "LAST_QUESTION") {
-    const { userAnswer } = action.payload
-    const isCorrect =  userAnswer === state.questions[state.currentQuestionIndex].correctAnswer;
-
-    const resultObject = {
-      ...state.questions[state.currentQuestionIndex],
-      userAnswer,
-      isCorrect,
-    }
-    return {
-      ...state,
-      percentComplete: state.percentComplete + (100 / state.questions.length),
-      score: isCorrect ? state.score++ : state.score,
-      results: [...state.results, resultObject],
-    };
-
   }
   return state;
 };

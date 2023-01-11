@@ -7,7 +7,7 @@ import {Results} from "../Results";
 
 export const Quiz = () => {
   const {
-    state: { questions, currentQuestionIndex, percentComplete },
+    state: { questions, currentQuestionIndex, percentComplete, results, score },
     dispatch,
   } = useGame();
   const [choiceSelected, setChoiceSelected] = useState();
@@ -41,7 +41,7 @@ export const Quiz = () => {
               onClick={onClick}/>
       }
       {!displayQuestion &&
-          <Results />
+          <Results results={results} score={score}/>
       }
     </div>
   );
